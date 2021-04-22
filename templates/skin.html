@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <title>DATA PENUMPANG STASIUN BANDUNG</title>
+  <style>
+    .judul
+    {
+      color: #e8e8e8;
+      text-align: center;
+      text-shadow: -1px 1px 0 #41ba45,
+                    1px 1px 0 #c63d2b,
+                    1px -1px 0 #42afac,
+                    -1px -1px 0 #c6c23f;
+      padding: 20px;
+      font-size: 27px;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand tulisan judul" href="index.php">DATA PENUMPANG STASIUN BANDUNG</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <br />
+  <br />
+
+  <div class="container">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Tambah Data
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="judulModal">Tambah Data Penumpang</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- Form Input Data-->
+            <div class="modal-body">
+              <form action="index.php" method="POST">
+                <div class="form-group">
+                  <label for="tname">Nama Penumpang</label>
+                  <input type="text" class="form-control" id="tname" placeholder="isi nama anda" name="tname" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="tdetail">Alamat</label>
+                  <textarea class="form-control" id="taddress" rows="3" placeholder="isi alamat anda" name="taddress" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="tnametrain">Nama Kereta</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tnametrain" id="tnametrain1" value="Argo Wilis" />
+                        <label class="form-check-label" for="tnametrain1">Argo Wilis</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tnametrain" id="tnametrain2" value="Logawa" />
+                        <label class="form-check-label" for="tnametrain2">Logawa</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tnametrain" id="tnametrain3" value="Taksaka" />
+                        <label class="form-check-label" for="tnametrain3">Taksaka</label>
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="tclass">Kelas</label>
+                    <div class="col-sm-12">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tclass" id="tclass1" value="Ekonomi" />
+                        <label class="form-check-label" for="tclass1">Ekonomi</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tclass" id="tclass2" value="Bisnis" />
+                        <label class="form-check-label" for="tclass2">Bisnis</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tclass" id="tclass3" value="Eksekutif" />
+                        <label class="form-check-label" for="tclass3">Eksekutif</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tclass" id="tclass4" value="Premium" />
+                        <label class="form-check-label" for="tclass4">Premium</label>
+                      </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                  <label for="tdeadline">Tanggal Keberangkatan</label>
+                  <input class="form-control" type="date" name="tdate" name="tdate" required />
+                </div>
+                <br>
+            </div>
+           
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              <button type="submit" name="add" class="btn btn-primary">Kirim</button>
+            </div>
+              </form>
+          </div>
+        </div>
+      </div>
+  
+    <br>
+    <br>
+    <div> <!-- Sorting data berdarkan attribut data yang diklik-->
+      <h4>Sorting Berdasarkan :
+        <a class="btn btn-secondary" href="index.php?sort=name_td" role="button">Nama Penumpang</a>
+        <a class="btn btn-secondary" href="index.php?sort=name_train_td" role="button">Nama Kereta</a>
+        <a class="btn btn-secondary" href="index.php?sort=class_td" role="button">Kelas</a>
+        <a class="btn btn-secondary" href="index.php?sort=date_td" role="button">Tanggal</a>
+        <a class="btn btn-secondary" href="index.php?sort=checkin_td" role="button">Status</a>
+      </h4>
+      <a class="btn btn-secondary" href="index.php" role="button">Reset</a>
+    </div>
+
+    <br>
+    <!-- Tabel Data Penumpang -->
+    <div style="display: inline-block; ">
+      <h4 style="text-align: center; "><b>Data Penumpang</b></h4>
+       <!-- TABEL -->
+      <table align="left" border="1" style="text-align: center;">
+        <tr>
+          <td style="width: 2%;">No</td>
+          <td style="width: 14%;">Nama</td>
+          <td style="width: 34%;">Alamat</td>
+          <td>Nama Kereta</td>
+          <td>Kelas</td>
+          <td>Tanggal</td>
+          <td>Check-In</td>
+          <td>Aksi</td>
+        </tr>
+        <tr>
+          <!-- DATA YG AKAN DIGANTI -->
+          DATA_TABEL
+        </tr>
+
+      </table>
+    </div>
+    <br>
+    <br>
+  </div>
+
+  <footer class="footer bg-dark text-center">
+    <div class="container">
+      <small class="text-white">1905741 - Rio Ramadhan Bahtiar</small>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
